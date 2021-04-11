@@ -1,0 +1,12 @@
+.trufa__botao {
+    background: rgb(163, 163, 179);
+    
+    border-radius: .5px;
+    color: #fdfdfd;
+    
+}
+
+.trufa__botao:hover {
+    background: blueviolet;
+    cursor: pointer;
+}

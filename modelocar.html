@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Carrinho</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/trufas.css">
+    <link rel="stylesheet" href="./css/trufa.css">
+    <link rel="stylesheet" href="./css/trufa-conteudo.css">
+    <link rel="stylesheet" href="./css/trufa-titulo.css">
+    <link rel="stylesheet" href="./css/titulo-descricao.css">
+    <link rel="stylesheet" href="./css/trufa-imagem.css">
+    <link rel="stylesheet" href="./css/trufa.botao.css">
+    <link rel="stylesheet" href="./css/rodape.css">
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>Meu carrinho</h1>
+    </header>
+    <section  class="trufas">
+        <div id="msg" class="trufa">
+        </div>
+        <div class="trufa">
+            <img alt="Trufa de morango" class="trufmoran__imagem" src="./trufamaracuja.PNG" />
+            <div class="trufa__conteudo">
+                <h4 class="trufa__titulo">Trufa de maracujá</h4>
+                <p class="trufa__descricao">R$ 1.15</p>
+                <button id="maracuja__sub" class="trufa__botao">-</button>
+                <button id="maracuja__add" class="trufa__botao">+</button>
+                <input type="number" name="maracuja-quantity" id="maracuja__quanty" value="0">
+            </div>
+        </div>
+        <div class="trufa">
+            <img alt="Trufa de morango" class="trufmoran__imagem" src="./trufamorango.PNG" />
+            <div class="trufa__conteudo">
+                <h4 class="trufa__titulo">Trufa de morango</h4>
+                <p class="trufa__descricao">R$ 1.35</p>
+                <button id="morango__sub" class="trufa__botao">-</button>
+                <button id="morango__add" class="trufa__botao">+</button>
+                <input type="number" name="morango-quantity" id="morango__quanty" value="0">
+            </div>
+        </div>
+        <div class="trufa">
+            <img alt="Trufa de morango" class="trufmoran__imagem" src="./trufamaracuja.PNG" />
+            <div class="trufa__conteudo">
+                <h4 class="trufa__titulo">Barra de Chocolate</h4>
+                <p class="trufa__descricao">R$ 1.30</p>
+                <button id="maracuja__sub" class="trufa__botao">-</button>
+                <button id="maracuja__add" class="trufa__botao">+</button>
+                <input type="number" name="maracuja-quantity" id="maracuja__quanty" value="0">
+            </div>
+        </div>
+        <button id="calculador">Calcular Frete</button>
+        <div id="frete"></div>
+        <div id="total"></div>
+
+    <footer class="rodape">
+        <p>&copy; RaBk</p>
+    </footer>
+    <script src="scriptcar.js"></script>
+    
+  </body>
+</html>
