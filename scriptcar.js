@@ -25,6 +25,9 @@ function carregar() {
 $(document).ready(function() {
 
     $('#maracuja__sub').click(function() {
+        if ($('#maracuja__quanty').val() == 0) {
+            return;
+        }
         $('#maracuja__quanty').val(function(i,qtd) {return --qtd});
      }) 
 
@@ -33,6 +36,9 @@ $(document).ready(function() {
     })  
 
     $('#morango__sub').click(function() {
+        if ($('#morango__quanty').val() == 0) {
+            return;
+        }
         $('#morango__quanty').val(function(i,qtd) {return --qtd});
      }) 
 
@@ -40,40 +46,42 @@ $(document).ready(function() {
         $('#morango__quanty').val(function(i,qtd) {return ++qtd});
     })  
 
-    $('#calculador').click(function() {
-
-        var morango = $('#morango__quanty').val() * 1.35; 
-        var maracuja = $('#maracuja__quanty').val() * 1.15;
-
-        var total = morango + maracuja;
-        if (total >= 10) {
-            var frete = 0
-            $('#frete').html('Parabéns, sua compra tem frete grátis!')
-
-        } else {
-            var frete = 15
-            $('#frete').html('Seu frete é R$15.00')
+    $('#barrachoco__sub').click(function() {
+        if ($('#barrachoco__quanty').val() == 0) {
+            return;
         }
+        $('#barrachoco__quanty').val(function(i,qtd) {return --qtd});
+     }) 
 
-        $('#total').html('Total ' +  (frete + total))
-        
-        
+     $('#barrachoco__add').click(function() {
+        $('#barrachoco__quanty').val(function(i,qtd) {return ++qtd});
     }) 
 
-     
+    $('#calculador').click(function() {
 
+        var morango = $('#morango__quanty').val(); 
+        var maracuja = $('#maracuja__quanty').val();
+        var barraChoco = $('#barrachoco__quanty').val();
 
-    
-    
-    
-    
+        $.ajax({
+            url:'http://localhost:8000/carTotal/',
+            data:JSON.stringify({'maracuja': maracuja, 'morango': morango,'barrachoco' : barraChoco}),
+            dataType: 'json',
+            contentType: 'application/json',
+            method: 'POST',
+        }).done(function(resp){
 
+           var frete = resp['frete']
+           if(frete == 0)
+                $('#frete').html('Parabéns, sua compra tem frete grátis!')
+           else {
+                $('#frete').html('Seu frete é R$' + frete)
+           }
 
+           $('#total').html('Total ' +  resp['totComprasEfrete'])
 
-
-
-
-
-
+        });       
+          
+    })
 })
 

@@ -1,0 +1,24 @@
+.trufa__botao {
+    
+    background: rgb(163, 163, 179);
+    height: 35px;
+    width: 30px;
+    border-radius: 3px;
+    color: #fdfdfd;
+    
+    
+}
+
+.trufa__botao:hover {
+    background: blueviolet;
+    cursor: pointer;
+}
+
+.calc {
+    text-align: right;
+    border-radius: 3px;
+    height: 30px;
+    width: 35px;
+    
+    
+} 

@@ -1,4 +1,5 @@
 .trufmoran__imagem {
     height: 200px;
-    border-radius: 5px;
+    border-radius: 15px;
+    padding: .5rem;
 }
