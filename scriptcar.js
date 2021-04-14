@@ -4,7 +4,7 @@ function carregar() {
     var img = document.getElementById('imagem')
     var data = new Date()
     var hora = data.getHours()
-    msg.innerHTML = `<strong>Agora são ${hora} horas.</strong>`
+    msg.innerHTML = `<strong> ${hora}:00 </strong>`
 
     // carregar imagem de acordo com o horário do dia.    
 
@@ -23,16 +23,34 @@ function carregar() {
 }
 
 $(document).ready(function() {
+        
+    function verificarCar() {
+        var tot = $('#maracuja__quanty').val() + $('#morango__quanty').val() + $('#barrachoco__quanty').val()
+        var podeFinalizarCompra = tot > 0
+
+        if (podeFinalizarCompra) {
+            $('#calculador').prop('disabled', false) 
+            $("#resumo").css("visibility", "visible");   
+        } else {
+            $('#calculador').prop('disabled', true)
+            $("#resumo").css("visibility", "hidden");
+        }
+        
+    }
+
+    verificarCar()
 
     $('#maracuja__sub').click(function() {
         if ($('#maracuja__quanty').val() == 0) {
             return;
         }
         $('#maracuja__quanty').val(function(i,qtd) {return --qtd});
+        verificarCar()
      }) 
 
      $('#maracuja__add').click(function() {
         $('#maracuja__quanty').val(function(i,qtd) {return ++qtd});
+        verificarCar()
     })  
 
     $('#morango__sub').click(function() {
@@ -40,10 +58,12 @@ $(document).ready(function() {
             return;
         }
         $('#morango__quanty').val(function(i,qtd) {return --qtd});
+        verificarCar()
      }) 
 
      $('#morango__add').click(function() {
         $('#morango__quanty').val(function(i,qtd) {return ++qtd});
+        verificarCar()
     })  
 
     $('#barrachoco__sub').click(function() {
@@ -51,10 +71,12 @@ $(document).ready(function() {
             return;
         }
         $('#barrachoco__quanty').val(function(i,qtd) {return --qtd});
+        verificarCar()
      }) 
 
      $('#barrachoco__add').click(function() {
         $('#barrachoco__quanty').val(function(i,qtd) {return ++qtd});
+        verificarCar()
     }) 
 
     $('#calculador').click(function() {
@@ -73,15 +95,18 @@ $(document).ready(function() {
 
            var frete = resp['frete']
            if(frete == 0)
+                //$('#frete').alert('Adicione valores antes de finalizar!')
                 $('#frete').html('Parabéns, sua compra tem frete grátis!')
            else {
-                $('#frete').html('Seu frete é R$' + frete)
+                $('#frete').html('Frete no valor de R$' + frete)
            }
 
-           $('#total').html('Total ' +  resp['totComprasEfrete'])
+           $('#total').html('Total R$' +  resp['totComprasEfrete'])
 
         });       
           
     })
+
+
 })
 

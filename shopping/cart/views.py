@@ -12,8 +12,8 @@ def carTotal(request):
     #text = data.decode()
     #dic = json.loads(text)
     #dic = request.json()
-    
-    valorTotSemFrete = dic['maracuja'] * 1.15 + dic['morango'] * 1.35 + dic['barrachoco'] * 1.25
+    #print(dic)
+    valorTotSemFrete = float(dic['maracuja']) * 1.15 + float(dic['morango']) * 1.35 + float(dic['barrachoco']) * 1.25
     if (valorTotSemFrete >= 10):
         frete = 0
     else:

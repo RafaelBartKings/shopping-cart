@@ -4,3 +4,28 @@
     margin-right: 1.5rem;
 
 }
+
+.frete {
+    text-align: center;
+    color: rgb(10, 10, 63);
+    font-size: 1.5rem;
+    margin: 1%;    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+.total {
+    text-align: center;
+    color: rgb(10, 10, 63);
+    font-size: 1.5rem;
+    margin: 1%;    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+button:disabled,
+    button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    }
